@@ -17,7 +17,13 @@ connectCloudinary();
 
 //Middlewares
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: "https://fitstyle-admin.vercel.app",
+  credentials: true,
+  methods: "GET,POST,PUT,DELETE",
+  allowedHeaders: "Content-Type,Authorization"
+}));
+
 
 //Api end points
 app.use("/api/user", userRouter);
