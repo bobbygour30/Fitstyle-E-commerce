@@ -6,17 +6,17 @@ import NewsLetterBox from "../components/NewsLetterBox";
 const About = () => {
   return (
     <div>
-      <div className="text-2xl text-center pt-8 border-t ml-36">
+      <div className="text-2xl text-center pt-8 border-t mx-4 sm:ml-36">
         <Title text1={"ABOUT"} text2={"US"} />
       </div>
 
-      <div className="my-10 flex flex-col md:flex-row gap-16 ml-48 ">
+      <div className="my-10 flex flex-col md:flex-row gap-8 sm:gap-16 mx-4 sm:ml-48">
         <img
-          className="w-full  md:max-w-[450px] object-cover"
+          className="w-full sm:max-w-[450px] object-cover"
           src={assets.about_img}
-          alt=""
+          alt="About Fitstyle"
         />
-        <div className="flex flex-col justify-center gap-6 md:w-2/4 text-gray-600">
+        <div className="flex flex-col justify-center gap-6 sm:w-2/4 text-gray-600">
           <p>
             Welcome to Fitstyle, where fashion meets individuality. At Fitstyle,
             we believe that clothing is more than just fabric; it's a form of
