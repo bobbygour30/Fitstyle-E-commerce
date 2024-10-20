@@ -8,33 +8,38 @@ import productRouter from "./routes/productRoute.js";
 import cartRouter from "./routes/cartRoute.js";
 import orderRouter from "./routes/orderRoute.js";
 
-//App config
-
+// App config
 const app = express();
 const port = process.env.PORT || 4000;
 connectDB();
 connectCloudinary();
 
-//Middlewares
+// Middlewares
 app.use(express.json());
+
+// CORS configuration
 app.use(cors({
-  origin: "https://fitstyle-admin.vercel.app",
-  credentials: true,
-  methods: "GET,POST,PUT,DELETE",
-  allowedHeaders: "Content-Type,Authorization"
+  origin: "https://fitstyle-admin.vercel.app",  // Allow the admin panel URL
+  credentials: true,  // Allow cookies or auth tokens
+  methods: "GET,POST,PUT,DELETE",  // Allowed HTTP methods
+  allowedHeaders: "Content-Type,Authorization"  // Allowed headers
 }));
 
+// Handle preflight requests for all routes
+app.options('*', cors());
 
-//Api end points
+// API endpoints
 app.use("/api/user", userRouter);
 app.use("/api/product", productRouter);
 app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
 
+// Root endpoint
 app.get("/", (req, res) => {
-  res.send("Api working");
+  res.send("API working");
 });
 
+// Start the server
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
