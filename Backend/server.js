@@ -17,18 +17,11 @@ connectCloudinary();
 // Middlewares
 app.use(express.json());
 
-// CORS configuration for frontend and admin panel
-const corsOptions = {
-  origin: ["https://fitstyle-admin.vercel.app", "https://fitstyle-frontend.vercel.app"], // Add frontend URL and admin panel URL
-  credentials: true,  // Allow credentials (cookies, authorization headers)
-  methods: "GET,POST,PUT,DELETE",  // Allowed methods
-  allowedHeaders: "Content-Type,Authorization",  // Allowed headers
-};
-
-app.use(cors(corsOptions));
+// CORS configuration
+app.use(cors());
 
 // Handle preflight requests for all routes
-app.options("*", cors(corsOptions));
+app.options("*", cors());
 
 // API endpoints
 app.use("/api/user", userRouter);
